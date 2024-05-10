@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  function MyFilter(array, callback) {
+    let FilterArray = [];
+    for (let i = 0; i < array.length; i++) {
+      let result = callback(array[i]);
+      if (result !== undefined) {
+        FilterArray.push(result);
+      }
+    }
+    return FilterArray;
+  }
+
+  let inputArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  let output = MyFilter(inputArray, function (value) {
+    if (value % 2 === 0) {
+      return value;
+    }
+  });
+  console.log(output);
+
+  let inputArray1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  let output1 = MyFilter(inputArray1, function (value1) {
+    return value1 * 5;
+  });
+  console.log(output1);
+
+  let inputArray2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  let output2 = MyFilter(inputArray2, function (value2) {
+    if (value2 >= 5) {
+      return value2;
+    }
+  });
+  console.log(output2);
+</script>

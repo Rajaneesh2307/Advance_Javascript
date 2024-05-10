@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="output"></h1>
+  </body>
+</html>
+<script>
+  //   let result = new Promise(function (resolve, reject) {
+  //     setTimeout(function () {
+  //       resolve("Payment Successful..");
+  //     }, 3000);
+  //   });
+  //   result
+  //     .then(function (value) {
+  //       console.log(value);
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  //   console.log(result);
+
+  //   let my_promise = new Promise(function (my_resolve, my_reject) {
+  //     let payment = "success";
+  //     if (payment == "success") {
+  //       my_resolve("Payment is Successful...");
+  //     } else {
+  //       my_reject("Payment is Failed...");
+  //     }
+  //   });
+  //   let result = document.getElementById("output");
+  //   my_promise
+  //     .then(function (value) {
+  //       result.innerText = value;
+  //     })
+  //     .catch(function (error) {
+  //       result.innerText = error;
+  //     });
+  //   console.log(my_promise);
+
+  let my_promise = new Promise(function (my_resolve, my_reject) {
+    let value = 0;
+    if (value == 5) {
+      my_resolve("Ok...");
+    } else {
+      my_reject("Error...");
+    }
+  });
+  let result = document.getElementById("output");
+  my_promise
+    .then(function (value) {
+      result.innerText = value;
+    })
+    .catch(function (error) {
+      result.innerText = error;
+    });
+  console.log(my_promise);
+</script>

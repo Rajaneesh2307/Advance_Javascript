@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  function MyMap(array, callback) {
+    let MapArray = [];
+    for (let i = 0; i < array.length; i++) {
+      MapArray.push(callback(array[i]));
+    }
+    return MapArray;
+  }
+
+  let inputArray = [1, 2, 3, 4, 5]; // Your Array Here!
+  let output = MyMap(inputArray, function (value) {
+    return value * 2;
+  });
+  console.log(output); // This will print the mapped array to the console
+
+  let inputArray1 = [1, 2, 3, 4, 5]; // Your Array Here!
+  let output1 = MyMap(inputArray1, function (value1) {
+    return value1 * 5;
+  });
+  console.log(output1); // This will print the mapped array to the console
+
+  let inputArray2 = [1, 2, 3, 4, 5]; // Your Array Here!
+  let output2 = MyMap(inputArray2, function (value2) {
+    if (value2 % 2 === 0) {
+      return value2; // Return the number itself if it's even
+    } else {
+      return 0; // Return 0 for odd numbers
+    }
+  });
+  console.log(output2); // This will print the mapped array to the console
+
+  let inputArray3 = [1, 2, 3, 4, 5]; // Your Array Here!
+  let output3 = MyMap(inputArray3, function (value3) {
+    return value3 / 5;
+    // return value3 - 5;
+  });
+  console.log(output3); // This will print the mapped array to the console
+</script>

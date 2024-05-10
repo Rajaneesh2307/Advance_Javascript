@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // Normal Constructor Function..
+  function details(firstName, lastName) {
+    this.FirstName = firstName;
+    this.LastName = lastName;
+  }
+
+  let person = new details("Rajaneesh", "Yembuluru");
+  console.log(person);
+
+  // Adding Prototype to our Constructor Function..
+  function details1(firstName, lastName) {
+    this.FirstName = firstName;
+    this.LastName = lastName;
+  }
+
+  details1.prototype.displayFullName = function () {
+    console.log(this.FirstName + " " + this.LastName);
+  };
+
+  let person1 = new details1("Likhitha", "Yembuluru");
+  person1.displayFullName();
+  console.log(person1);
+
+  // Adding Prototype to our Constructor Function..
+  function details2(firstName, lastName) {
+    this.FirstName = firstName;
+    this.LastName = lastName;
+  }
+
+  details2.prototype.BirthPlace = "Atmakur";
+
+  let person2 = new details2("Suneetha", "Yembuluru");
+  console.log(person2);
+
+  // Adding Prototype to our Constructor Function..
+  function details3(firstName, lastName) {
+    this.FirstName = firstName;
+    this.LastName = lastName;
+  }
+
+  details3.prototype.BirthPlace = {
+    City: "Atmakur",
+    Country: "India",
+  };
+
+  let person3 = new details3("Narasimha Rao", "Yembuluru");
+  console.log(person3);
+</script>

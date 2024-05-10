@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  function constructor(name, age) {
+    this.Name = name;
+    this.Age = age;
+  }
+  let details1 = new constructor("Yembuluru Rajaneesh", 24);
+  let details2 = new constructor("Yembuluru Likhitha", 18);
+  let details3 = new constructor("Yembuluru Suneetha", 47);
+  let details4 = new constructor("Yembuluru Narasimha Rao", 54);
+
+  // Adding the new values to the object..
+  details1.place = "Atmakur";
+  details2.place = "Atmakur";
+  details3.place = "Atmakur";
+  details4.place = "Kulluru";
+
+  console.log(details1, details2, details3, details4);
+</script>

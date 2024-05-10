@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="output" />
+  </body>
+</html>
+<script>
+  function passingToDebounce(value) {
+    console.log(value);
+  }
+
+  function Debounce(passingToDebounce, Delay) {
+    let TimerID;
+    return function (value) {
+      clearTimeout(TimerID);
+      TimerID = setTimeout(function () {
+        passingToDebounce(value);
+      }, Delay);
+    };
+  }
+
+  let OutputValue = Debounce(passingToDebounce, 2000);
+  // OutputValue("abcdef");
+
+  let inputText = document.getElementById("output");
+  inputText.addEventListener("keyup", function () {
+    OutputValue(event.target.value);
+  });
+</script>

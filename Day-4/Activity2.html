@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  function ParentCar(TotalWheels, TotalDoors, Color, Engine) {
+    this.TotalWheels = TotalWheels;
+    this.TotalDoors = TotalDoors;
+    this.Color = Color;
+    this.Engine = Engine;
+  }
+
+  ParentCar.prototype.EngineStart = function () {
+    console.log("Start the Engine...");
+  };
+
+  ParentCar.prototype.EngineStop = function () {
+    console.log("Stop the Engine...");
+  };
+
+  ParentCar.prototype.BreakingSystem = function () {
+    console.log("All 4 Wheels having Disc Breaking...");
+  };
+
+  function ChildCar(
+    TotalSeats,
+    AirBags,
+    TotalWheels,
+    TotalDoors,
+    Color,
+    Engine
+  ) {
+    // calling parent constructor
+    ParentCar.call(this, TotalWheels, TotalDoors, Color, Engine);
+    this.TotalSeats = TotalSeats;
+    this.AirBags = AirBags;
+  }
+
+  ChildCar.prototype = Object.create(ParentCar.prototype);
+
+  ChildCar.prototype.Drive = function () {
+    console.log("I am Driving on 4 Wheels...");
+  };
+
+  let output = new ChildCar(5, 6, 4, 4, "DarkBlack", "Diesel Engine");
+  console.log(output);
+
+  output.EngineStart();
+  output.Drive();
+  output.BreakingSystem();
+  output.EngineStop();
+</script>

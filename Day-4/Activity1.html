@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // Creating the object with inheritance from HTMLElement prototype
+  let ParentCar = {
+    TotalWheels: 4,
+    TotalDoors: 5,
+    Color: "DarkBlack",
+    Engine: "Diesel Engine",
+    StartEngine() {
+      console.log("Start the Engine...");
+    },
+    StopEngine() {
+      console.log("Stop the Engine...");
+    },
+  };
+
+  let ChildCar = Object.create(ParentCar);
+  // Adding a new property to the ChildCar Object
+  ChildCar.Seats = 5;
+  ChildCar.AirBags = 6;
+  ChildCar.Drive = function () {
+    console.log("I am driving on 4 wheels...");
+  };
+  ChildCar.BreakingSystem = function () {
+    console.log("All Wheels having Disc Breaking...");
+  };
+
+  // Accessing properties of the parent Car using the child car object
+  console.log(ChildCar.TotalWheels);
+  console.log(ChildCar.Color);
+  console.log(ChildCar.TotalDoors);
+  console.log(ChildCar.Engine);
+
+  ChildCar.StartEngine();
+  ChildCar.Drive();
+  ChildCar.StopEngine();
+  ChildCar.BreakingSystem();
+
+  console.log(ChildCar);
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  function MyReduce(array, callback) {
+    let initialValue = 1;
+    for (let i = 0; i < array.length; i++) {
+      initialValue = callback(array[i], initialValue);
+    }
+    return initialValue;
+  }
+
+  let inputArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  let OurOutput = MyReduce(inputArray, function (value, sum) {
+    return sum + value;
+  });
+  console.log(OurOutput - 1);
+
+  let inputArray1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  let OurOutput1 = MyReduce(inputArray1, function (value1, sum1) {
+    return sum1 * value1;
+  });
+  console.log(OurOutput1);
+</script>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  let object1 = {
+    Name: "Naruto",
+    Age: 17,
+    Village: "Hidden Leaf Village",
+    District: "Land of Fire",
+  };
+
+  let object2 = Object.create(object1);
+  object2.Name = "Sasuke";
+  object2.Age = 17;
+  object2.Village = "Hidden Leaf Village";
+  object2.District = "Land of Fire";
+
+  console.log(object2);
+</script>

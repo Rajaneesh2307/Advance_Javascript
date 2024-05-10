@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/DiceGame.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="Output">Dice Game</h1>
+    <div class="container">
+      <div id="output1"></div>
+      <div id="output2"></div>
+      <div id="output3"></div>
+    </div>
+    <div class="button">
+      <button>Roll Dice</button>
+    </div>
+  </body>
+</html>
+<script>
+  document.querySelector("button").addEventListener("click", DiceGame);
+  function DiceGame() {
+    let imgLoader1 = loader();
+    let imgLoader2 = loader();
+    let imgLoader3 = loader();
+
+    document.querySelector("#output1").innerHTML = "";
+    document.querySelector("#output1").append(imgLoader1);
+
+    document.querySelector("#output2").innerHTML = "";
+    document.querySelector("#output2").append(imgLoader2);
+
+    document.querySelector("#output3").innerHTML = "";
+    document.querySelector("#output3").append(imgLoader3);
+
+    function loader() {
+      let imgLoader = document.createElement("img");
+      imgLoader.src =
+        "https://lrssearch.insurance.ca.gov/assets/content/Loading_icon.gif";
+      imgLoader.style =
+        "height: 35px; width: 35px; margin-left: 45px; margin-top: 45px";
+      return imgLoader;
+    }
+
+    setTimeout(function () {
+      let random1 = Math.floor(Math.random() * 6 + 1); // Random number between 1 and 6
+      let random2 = Math.floor(Math.random() * 6 + 1);
+      let random3 = Math.floor(Math.random() * 6 + 1);
+
+      let img1 = document.createElement("img");
+      img1.src = "dice" + random1 + ".png";
+      img1.style = "margin-left: 4px; margin-top: 3px";
+
+      let img2 = document.createElement("img");
+      img2.src = "dice" + random2 + ".png";
+      img2.style = "margin-left: 4px; margin-top: 3px";
+
+      let img3 = document.createElement("img");
+      img3.src = "dice" + random3 + ".png";
+      img3.style = "margin-left: 4px; margin-top: 3px";
+
+      document.querySelector("#output1").innerHTML = "";
+      document.querySelector("#output1").append(img1);
+
+      document.querySelector("#output2").innerHTML = "";
+      document.querySelector("#output2").append(img2);
+
+      document.querySelector("#output3").innerHTML = "";
+      document.querySelector("#output3").append(img3);
+
+      if (random1 > random2 && random1 > random3) {
+        let num1 = (document.querySelector("#Output").innerText =
+          "Dice One is the Winner");
+      } else if (random2 > random1 && random2 > random3) {
+        let num2 = (document.querySelector("#Output").innerText =
+          "Dice Two is the Winner");
+      } else if (random3 > random1 && random3 > random2) {
+        let num3 = (document.querySelector("#Output").innerText =
+          "Dice Three is the Winner");
+      } else if (
+        random1 == random2 &&
+        random2 == random3 &&
+        random3 == random1
+      ) {
+        let num4 = (document.querySelector("#Output").innerText =
+          "All Three Dices are the Same");
+      } else {
+        let num5 = (document.querySelector("#Output").innerText =
+          "Two Dices having the  same value are the Winners!");
+      }
+    }, 2000);
+  }
+</script>

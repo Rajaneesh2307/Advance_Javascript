@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // Closure:- An inner function which has access to outer function variables and parameters even after outer function is returned or called.
+  function authentication() {
+    let UserName = "Yembuluru Rajaneesh";
+    let Password = "Raj@5678";
+
+    return function CheckDetails(User_Name, User_Password) {
+      if (UserName === User_Name && Password === User_Password) {
+        console.log("Credentials are Right..");
+        alert("Access Granted");
+      } else {
+        console.log("Credentials are Wrong..");
+      }
+    };
+  }
+
+  let output = authentication(); // This line calls the authentication function and assigns the returned inner function (CheckDetails) to the variable output.
+  output("Yembuluru Rajaneesh", "Raj@5678");
+</script>

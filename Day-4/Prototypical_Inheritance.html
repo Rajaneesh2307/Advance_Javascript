@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // (Prototypical Inheritance: It is a mechanism in Javascript, Child class acquires all the properties and behavioral from its Parent Class is Known as Prototypical Inheritance.)
+
+  let Father = {
+    FirstName: "Yembuluru",
+    LastName: "Narasimha Rao",
+    Place: "Kullur",
+    Age: 54,
+  };
+
+  let Mother = {
+    FirstName: "Yembuluru",
+    LastName: "Suneetha",
+    Place: "Atmakur",
+    Age: 47,
+  };
+
+  let Son = Object.create(Father);
+  // Object.setPrototypeOf(Son, Mother);
+
+  Son.LastName = "Rajaneesh";
+  Son.Age = 24;
+  // Son.FirstName = Father.FirstName;
+  // Son.Place = Father.Place;
+
+  console.log(Son.FirstName);
+  console.log(Son.Place);
+  console.log(Son);
+</script>

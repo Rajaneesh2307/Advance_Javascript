@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // Accessing one Construction Function values from another Constructor Function..
+  function fullName(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  // Creating prototype for fullName() constructor function
+  fullName.prototype.displayFullName = function () {
+    console.log(this.firstName + " " + this.lastName);
+  };
+
+  fullName.prototype.NativePlace = "Kullur";
+
+  function details(firstName, lastName, age, birthPlace) {
+    // Calling the fullName constructor function and passing its  arguments to set the properties of the details constructor function object.
+    // fullName.call(this, firstName, lastName);
+    fullName.apply(this, [firstName, lastName]);
+    this.age = age;
+    this.birthPlace = birthPlace;
+  }
+
+  // Creating prototype for details() constructor function and assigning fullName prototype to it
+  details.prototype = Object.create(fullName.prototype);
+
+  let output = new details("Yembuluru", "Rajaneesh", 24, "Atmakur");
+  console.log(output);
+  //   console.log(output.displayFullName);
+</script>

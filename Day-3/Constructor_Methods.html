@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  let student1 = {
+    Name: "Naruto",
+    Age: 17,
+    Place: "Leaf Village",
+  };
+
+  let student2 = {
+    Name: "Gaara",
+    Age: 17,
+    Place: "Sand Village",
+  };
+
+  function constructor(Land, Chakra) {
+    this.Land = Land;
+    this.Chakra = Chakra;
+  }
+
+  // We have Three methods to add properties to an object using Constructor method
+  //  Method 1 : call method
+  //  Method 2 : apply method
+  //  Method 3 : bind method
+
+  //   constructor.call(student1, "Land of Fire", "Wind Chakra");
+  //   console.log(student1);
+
+  //   constructor.call(student2, "Land of Wind", "Sand Chakra");
+  //   console.log(student2);
+
+  //   constructor.apply(student1, ["Land of Fire", "Wind Chakra"]);
+  //   console.log(student1);
+
+  //   constructor.apply(student2, ["Land of Wind", "Sand Chakra"]);
+  //   console.log(student2);
+
+  let output1 = constructor.bind(student1, "Land of Fire", "Wind Chakra");
+  output1();
+  console.log(student1);
+
+  let output2 = constructor.bind(student2, "Land of Wind", "Sand Chakra");
+  output2();
+  console.log(student2);
+</script>

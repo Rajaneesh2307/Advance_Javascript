@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  function constructorFunction(Name, Age, Place) {
+    this.Name = Name;
+    this.Age = Age;
+    this.Place = Place;
+  }
+  let personDetails = new constructorFunction(
+    "Yembuluru Rajaneesh",
+    "24",
+    "Nellore"
+  );
+  let personDetails1 = new constructorFunction(
+    "Yembuluru Likhitha",
+    "19",
+    "Nellore"
+  );
+  let personDetails2 = new constructorFunction(
+    "Yembuluru Narasimha Rao",
+    "54",
+    "Kulluru"
+  );
+  let personDetails3 = new constructorFunction(
+    "Yembuluru Suneetha",
+    "47",
+    "Nellore"
+  );
+  console.log(personDetails, personDetails1, personDetails2, personDetails3);
+</script>

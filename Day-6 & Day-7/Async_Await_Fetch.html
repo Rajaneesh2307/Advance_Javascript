@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #output {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 18px;
+        margin-left: 30px;
+      }
+      #output img {
+        /* margin-top: 15px; */
+        height: 200px;
+        width: 230px;
+        cursor: pointer;
+      }
+      #output div {
+        /* border: 1px solid lightgrey; */
+        background-color: whitesmoke;
+        width: 230px;
+        text-align: center;
+      }
+      #btn1 {
+        margin-left: 40%;
+        margin-right: 16px;
+        margin-bottom: 45px;
+        margin-top: 50px;
+      }
+      #btn2 {
+        margin-right: 16px;
+      }
+      #btn2:hover {
+        cursor: pointer;
+        transition: 0.55s ease-in;
+        background-color: blueviolet;
+        border: none;
+        color: white;
+        font-size: 16px;
+        padding: 6px 8px;
+        transform: scale(1.1);
+        border-radius: 6px;
+      }
+      #btn1:hover {
+        cursor: pointer;
+        transition: 0.55s ease-in;
+        background-color: blueviolet;
+        border: none;
+        color: white;
+        font-size: 16px;
+        padding: 6px 8px;
+        transform: scale(1.1);
+        border-radius: 6px;
+      }
+      #SearchData {
+        outline: none;
+      }
+      #SearchData:hover {
+        transition: 0.55s ease-in;
+        background-color: whitesmoke;
+        border: 1px solid blueviolet;
+        color: black;
+        font-size: 16px;
+        padding: 6px 8px;
+        transform: scale(1.1);
+        border-radius: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn1">High-Low</button>
+    <button id="btn2">Low-High</button>
+    <input type="text" id="SearchData" placeholder="Enter Data to search..." />
+    <div id="output"></div>
+  </body>
+</html>
+<script>
+  let OurData;
+  async function getData() {
+    try {
+      let fetchData = await fetch("https://fakestoreapi.com/products");
+      let data = await fetchData.json();
+      console.log(data);
+      OurData = data;
+      DisplayDataInDom(data);
+    } catch (error) {
+      console.log("Error: " + error);
+    }
+  }
+  getData();
+
+  function DisplayDataInDom(data) {
+    document.querySelector("#output").innerHTML = "";
+    data.forEach(function (value) {
+      let div = document.createElement("div");
+
+      let image = document.createElement("img");
+      image.src = value.image;
+
+      let Product_Name = document.createElement("p");
+      Product_Name.innerText = value.title;
+
+      let Product_Price = document.createElement("p");
+      Product_Price.innerText = "Price : " + "$" + value.price;
+
+      div.append(image, Product_Name, Product_Price);
+      document.querySelector("#output").append(div);
+    });
+  }
+
+  document.querySelector("#btn1").addEventListener("click", priceHighToLow);
+  function priceHighToLow() {
+    let SortedData = OurData.sort(function (value1, value2) {
+      return value2.price - value1.price;
+    });
+    DisplayDataInDom(SortedData);
+  }
+
+  document.querySelector("#btn2").addEventListener("click", priceLowToHigh);
+  function priceLowToHigh() {
+    let SortedData = OurData.sort(function (value1, value2) {
+      return value1.price - value2.price;
+    });
+    DisplayDataInDom(SortedData);
+  }
+
+  document
+    .querySelector("#SearchData")
+    .addEventListener("input", SearchOurData);
+  function SearchOurData() {
+    let InputValue = document.getElementById("SearchData").value;
+    let FilteredData = OurData.filter(function (value) {
+      return value.title.includes(InputValue);
+    });
+    DisplayDataInDom(FilteredData);
+  }
+
+  function Debounce(func, wait) {
+    let TimerID;
+    return function (value) {
+      clearTimeout(TimerID);
+      TimerID = setTimeout(function () {
+        func(value);
+      }, wait);
+    };
+  }
+
+  let InputDisplay = Debounce(SearchOurData, 1200);
+
+  let MainContainer = document.querySelector("#SearchData");
+  MainContainer.addEventListener("keyup", function () {
+    InputDisplay(DisplayDataInDom(OurData));
+  });
+</script>
