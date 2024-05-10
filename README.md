@@ -1,2 +1,9 @@
 # Advance_Javascript
 Advance_Javascript_Course
+Advanced Working with Functions: This includes concepts like recursion, stack, rest parameters, spread syntax, variable scope, closure, the old “var”, global object, function object, NFE, the “new Function” syntax, scheduling: setTimeout and setInterval, decorators and forwarding, call/apply, function binding, and revisiting arrow functions12.
+JavaScript Namespaces: To prevent conflicts between different parts of code, namespaces are used. They help in grouping related code together under a unique name32.
+Prototypes and Inheritance: JavaScript is a prototype-based language, and understanding prototypes and inheritance is crucial for advanced JavaScript programming. This includes prototypal inheritance, F.prototype, native prototypes, prototype methods, objects without proto, classes, class inheritance, static properties and methods, private and protected properties and methods, extending built-in classes, class checking: “instanceof”, and mixins1.
+Error Handling: This includes error handling with “try…catch”, custom errors, extending Error, promises, async/await, introduction: callbacks, promise, promises chaining, error handling with promises, promise API, promisification, microtasks, async/await1.
+Modules in JavaScript: Understanding how to create and use modules in JavaScript is essential for building scalable applications. This includes modules introduction, export and import, dynamic imports2.
+Chaining JavaScript Methods: Method chaining is a common pattern in JavaScript where you chain multiple methods together in a single line of code3.
+Generators, Advanced Iteration: Generators are a special kind of function that can be paused and resumed, allowing other code to run in the meantime. Advanced iteration includes generators, async iteration, and generators1.
